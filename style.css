@@ -9,7 +9,7 @@ body {
 
 header {
     text-align: center;
-    padding: 1em 0 18em 0; /* Ajuste no padding para acomodar o SVG */
+    padding: 1em 0 15em 0; /* Ajuste no padding para acomodar o SVG */
     /* background-color: #f8f3e8; */ /* Cor removida/fallback */
     background-image: url('header-bg.jpg');
     background-size: cover; /* Faz a imagem cobrir a área */
