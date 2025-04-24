@@ -9,7 +9,7 @@ body {
 
 header {
     text-align: center;
-    padding: 1em 0 15em 0; /* Ajuste no padding para acomodar o SVG */
+    padding: 1em 0 18em 0; /* Ajuste no padding para acomodar o SVG */
     /* background-color: #f8f3e8; */ /* Cor removida/fallback */
     background-image: url('header-bg.jpg');
     background-size: cover; /* Faz a imagem cobrir a área */
@@ -18,20 +18,6 @@ header {
     position: relative; /* Necessário para possível overlay */
     filter: saturate(1.3); /* Aumenta a saturação da imagem em 30% */
 }
-
-/* Possível Overlay (opcional, descomentar se necessário) */
-/*
-header::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(255, 255, 255, 0.3); // Exemplo: Overlay branco semi-transparente
-    z-index: 0; // Atrás do conteúdo
-}
-*/
 
 /* Ajustar z-index do conteúdo para ficar acima do overlay */
 header > * { 
@@ -55,7 +41,7 @@ header .curved-text-header text {
 }
 
 .date-container {
-    margin-top: -4em; /* Espaço após o nome */
+    margin-top: 0em; /* Espaço após o nome */
     font-size: 1.1em;
 }
 
