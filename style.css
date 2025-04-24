@@ -1,0 +1,365 @@
+body {
+    font-family: sans-serif;
+    background-color: #fdfaf4; /* Cor de fundo similar ao convite */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    padding: 1em 0 15em 0; /* Ajuste no padding para acomodar o SVG */
+    /* background-color: #f8f3e8; */ /* Cor removida/fallback */
+    background-image: url('header-bg.jpg');
+    background-size: cover; /* Faz a imagem cobrir a área */
+    background-position: center center; /* Centraliza a imagem */
+    background-repeat: no-repeat;
+    position: relative; /* Necessário para possível overlay */
+    filter: saturate(1.3); /* Aumenta a saturação da imagem em 30% */
+}
+
+/* Possível Overlay (opcional, descomentar se necessário) */
+/*
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.3); // Exemplo: Overlay branco semi-transparente
+    z-index: 0; // Atrás do conteúdo
+}
+*/
+
+/* Ajustar z-index do conteúdo para ficar acima do overlay */
+header > * { 
+    position: relative;
+    z-index: 1;
+}
+
+header .curved-text-header {
+    width: 95%; /* Quase largura total */
+    max-width: 900px; /* Aumentado de 500px */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+header .curved-text-header text {
+    font-family: 'Great Vibes', cursive;
+    font-size: 120px; /* Tamanho desejado */
+    fill: #5a4a42; /* Cor do texto (como no h1 original) */
+    text-anchor: middle; /* Centraliza o texto no caminho */
+}
+
+.date-container {
+    margin-top: -4em; /* Espaço após o nome */
+    font-size: 1.1em;
+}
+
+.vine-decoration {
+    text-align: center;
+    /* font-size: 1.5em; */ /* Removido */
+    /* color: #8f9a7b; */ /* Cor definida no SVG */
+    line-height: 1; /* Ainda útil para espaçamento vertical */
+    margin-bottom: 0.3em; /* Espaço antes da data */
+    /* letter-spacing: 0.1em; */ /* Removido */
+}
+
+/* Centraliza o SVG dentro do div */
+.vine-decoration svg {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Adiciona espaço após a segunda decoração */
+.vine-decoration:last-child {
+    margin-top: 0; 
+    margin-bottom: 0; /* Remove margem inferior extra */
+}
+
+header .date {
+    font-size: 1.5em; /* Aumentar um pouco a data */
+    color: #776a62;
+    font-weight: 700;
+    margin-top: 0; 
+    margin-bottom: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+    padding: 1em 0;
+    background-color: #f8f3e8;
+    border-top: 1px solid #e0d9cd;
+    border-bottom: 1px solid #e0d9cd;
+}
+
+.nav-item {
+    text-align: center;
+    text-decoration: none; /* Remove sublinhado do link */
+    display: inline-block; /* Para que o link se comporte como um bloco mas flua em linha */
+    color: #5a4a42; /* Cor padrão do texto e ícone no link */
+    padding: 0.5em 1em; /* Espaçamento interno */
+}
+
+.nav-item .icon {
+    display: block; /* Ícone acima do texto */
+    margin: 0 auto 0.2em auto; /* Centraliza e adiciona margem abaixo */
+    font-size: 36px; /* Tamanho do ícone um pouco menor */
+    color: #776a62; /* Cor específica dos ícones */
+    /* vertical-align: middle; */ /* Não mais necessário */
+}
+
+.nav-item .nav-text {
+    display: block; /* Texto abaixo do ícone */
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+/* Removido - estilo era para o <a> dentro do .nav-item, agora .nav-item é o <a>
+nav a {
+    text-decoration: none;
+    color: #5a4a42;
+    font-weight: bold;
+}
+*/
+
+main {
+    max-width: 1000px; /* Aumentar um pouco a largura máxima para acomodar lado a lado */
+    margin: 2em auto;
+    padding: 0 1em;
+}
+
+.sections-container {
+    display: flex;
+    gap: 1.5em; /* Espaço entre as seções */
+    flex-wrap: wrap; /* Permite quebrar linha em telas menores se necessário */
+}
+
+.sections-container > section {
+    flex: 1; /* Faz as seções dividirem o espaço igualmente */
+    min-width: 300px; /* Largura mínima antes de quebrar */
+    display: flex; /* Tornar a seção um flex container */
+    flex-direction: column; /* Organizar itens verticalmente */
+}
+
+section {
+    background-color: #fff;
+    margin-bottom: 2em;
+    padding: 1.5em;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    color: #776a62;
+    border-bottom: 2px solid #f8f3e8;
+    padding-bottom: 0.5em;
+    margin-top: 0;
+}
+
+.map-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%; /* Proporção 16:9 (para altura responsiva) */
+    margin-top: 0;
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.info-block {
+    margin-top: 1.5em; /* Espaço após o mapa */
+    padding-top: 1em;
+    border-top: 1px solid #eee; /* Linha sutil separando do mapa */
+    flex-grow: 1; /* Faz este bloco crescer e empurrar o botão para baixo */
+}
+
+section hr {
+    border: none;
+    border-top: 1px solid #eee; /* Mesma cor da linha acima do info-block */
+    margin: 1.5em 0 1em 0; /* Espaçamento vertical */
+}
+
+.info-item {
+    display: flex; /* Alinha ícone e texto lado a lado */
+    align-items: flex-start; /* Alinha ao topo se o texto quebrar linha */
+    margin-bottom: 0.8em; /* Espaço entre os itens de informação */
+    line-height: 1.5;
+}
+
+.info-icon {
+    margin-right: 0.6em; /* Espaço entre ícone e texto */
+    color: #776a62; /* Cor do ícone */
+    font-size: 1.3em; /* Tamanho do ícone */
+    margin-top: -0.1em; /* Ajuste fino vertical */
+}
+
+.info-item span {
+    flex: 1; /* Permite que o texto ocupe o espaço restante */
+}
+
+.info-item small {
+    display: block; /* Faz a observação ficar em linha separada */
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 0.2em;
+}
+
+footer {
+    text-align: center;
+    margin-top: 3em; /* Aumentar espaço antes do rodapé */
+    padding: 1.5em 1em; /* Aumentar padding interno */
+    background-color: #f8f3e8; /* Mesma cor do header/nav */
+    color: #776a62; /* Mesma cor de texto do header/nav */
+    border-top: 1px solid #e0d9cd; /* Linha sutil no topo */
+    font-size: 0.9em;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: #5a4a42; /* Cor mais escura para o link, como nos nav items */
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para telas menores */
+@media (max-width: 700px) { /* Ajustar ponto de quebra */
+    .sections-container {
+        flex-direction: column; /* Empilha as seções */
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    /* Tamanho menor para telas pequenas */
+    header .curved-text-header text {
+        font-size: 80px; /* Proporcionalmente grande para mobile */
+    }
+
+    #countdown-timer {
+        padding: 1em 0.5em;
+    }
+    .countdown-item {
+        margin: 0 0.5em;
+        font-size: 0.8em;
+    }
+    .countdown-item span {
+        font-size: 1.8em;
+    }
+}
+
+.route-button {
+    display: block;
+    margin-top: auto; /* Empurra para o fundo do flex container (section) */
+    margin-left: auto; /* Centraliza */
+    margin-right: auto; /* Centraliza */
+    margin-bottom: 0; /* Margem controlada pelo padding da section */
+    padding: 0.8em 1.5em;
+    background-color: #8f9a7b; /* Verde dos enfeites */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.95em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.route-button:hover {
+    background-color: #7a856a; /* Verde um pouco mais escuro no hover */
+}
+
+.route-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#countdown-timer {
+    text-align: center;
+    padding: 1.5em 1em;
+    background-color: rgba(248, 243, 232, 0.85); /* Mesmo bege da nav, um pouco mais opaco talvez */
+    border-bottom: 1px solid #e0d9cd;
+}
+
+.countdown-item {
+    display: inline-block;
+    margin: 0 1em;
+    font-size: 1em;
+    color: #5a4a42;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.countdown-item span {
+    display: block;
+    font-size: 2em; /* Números maiores */
+    font-weight: bold;
+    margin-bottom: 0.1em;
+    color: #776a62;
+}
+
+.countdown-ended {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #8f9a7b; /* Verde */
+}
+
+#couple-photo-section {
+    padding: 2em 1em; /* Espaçamento acima/abaixo */
+    /* background-color: #fdfaf4; */ /* Removido para usar fundo com blur */
+    position: relative; /* Necessário para posicionar o pseudo-elemento */
+    overflow: hidden; /* Garante que o blur não vaze */
+}
+
+#couple-photo-section::before {
+    content: "";
+    position: absolute;
+    top: -10px; /* Extrapola um pouco para cobrir bordas do blur */
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background-image: url('foto-casal.jpg');
+    background-size: cover;
+    background-position: center center;
+    filter: blur(8px); /* Ajuste o valor do blur conforme necessário */
+    opacity: 0.15; /* Define a opacidade do fundo desfocado */
+    z-index: 0; /* Coloca atrás do conteúdo */
+}
+
+.photo-container-9-16 {
+    width: 100%;
+    max-width: 300px; /* Limita a largura máxima da foto em telas grandes */
+    aspect-ratio: 9 / 16; /* Garante a proporção vertical */
+    margin: 0 auto; /* Centraliza o container */
+    overflow: hidden; /* Esconde partes da imagem que excedem */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra suave */
+    position: relative; /* Garante que fique acima do ::before */
+    z-index: 1; /* Coloca acima do ::before */
+}
+
+.photo-container-9-16 img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Preenche o container sem distorcer */
+} 
